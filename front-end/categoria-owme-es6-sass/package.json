@@ -3,7 +3,7 @@
   "version": "1.0.0",
   "main": "main.js",
   "scripts": {
-    "scss": "node-sass  src/assets/scss -o src/assets/styles"
+    "scss": "node-sass  src/assets/scss/layouts -o src/assets/styles"
   },
   "author": "Felipe M.",
   "license": "MIT",
