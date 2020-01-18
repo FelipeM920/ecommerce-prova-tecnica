@@ -140,7 +140,7 @@ const mapToHtml = (products) => {
                     ${product.name}
                 </p>
                 <p>
-                    ${product.price}
+                   R$ ${Math.trunc(product.price)}
                 </p>
             </li>
         </ul>`
