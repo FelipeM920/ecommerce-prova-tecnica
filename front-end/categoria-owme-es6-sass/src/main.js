@@ -121,9 +121,9 @@ const mapToHtml = (products) => {
             `<ul class="container__items">
             <li>
                 <picture>
-                    <img srcset="${product.image}">
+                    <img class="imgMobile" srcset="${product.image}">
                 </picture>
-                <p>
+                <p id="productName">
                     ${product.name}
                 </p>
                 <p>
