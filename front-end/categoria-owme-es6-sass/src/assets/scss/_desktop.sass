@@ -1,10 +1,10 @@
 .nav 
     display: flex
     width: 100%
+
     &__header
         padding-right: 60px
         padding-left: 60px
-        
 
     &__header li
         padding-right: 30px
@@ -16,3 +16,46 @@
     .logo
         margin-left: auto
         margin-right: auto
+
+.container
+    display: grid 
+
+    &__products
+        grid-template-columns: 25% 25% 25% 25%
+        grid-template-rows: auto
+        grid-auto-flow: row
+
+    &__items
+        display: flex
+        justify-content: center
+
+    &__items > li
+        text-align: center
+
+.pagination
+    display: flex
+    justify-content: center
+    align-content: flex-start
+
+    a
+        padding: 9px 16px
+        margin-right: 6px
+        transition: background-color .3s
+        text-decoration: none
+        font-weight: normal
+        color: #000
+
+    a.active 
+        background-color: #92AA88
+        color: #fff
+
+    a.inactive
+        background-color: #E2E2E2
+        color: #c2c2c2
+
+    a:hover:not(.active) 
+        background-color: #ddd
+
+
+
+    
