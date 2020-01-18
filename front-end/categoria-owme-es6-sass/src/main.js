@@ -1,4 +1,5 @@
 import { Service } from '../src/components/service.js';
+import { OptionBox } from '../src/components/enum.js';
 
 const service = new Service();
 const pageSize = 20;
@@ -12,9 +13,27 @@ service.loadProducts()
     .then(data => {
         totalPages = Math.ceil(data.products.length / pageSize);
         products = data.products
-        paginate(firstPage)
+        orderProducts(OptionBox.Options.MaiorValor);
         mapBarPaginationElements();
     })
+
+const orderProducts = (orderBy) => {
+    switch (orderBy) {
+        case OptionBox.Options.MaiorValor:
+            products.sort((a, b) => b.price - a.price)
+            break;
+        case OptionBox.Options.MenorValor:
+            products.sort((a, b) => a.price - b.price)
+            break;
+        case OptionBox.Options.NomeAZ:
+            products.sort((a, b) => b.name < a.name)
+            break;
+        case OptionBox.Options.NomeZA:
+            products.sort((a, b) => b.name > a.name)
+            break;
+    }
+    paginate(firstPage)
+}
 
 const paginate = (pageNumber) => {
     if (pageNumber == '❮')
@@ -23,7 +42,7 @@ const paginate = (pageNumber) => {
         ++actualPage;
     else
         actualPage = --pageNumber;
-        
+
     mapToHtml(products.slice(actualPage * pageSize, (actualPage + 1) * pageSize));
 }
 
@@ -50,12 +69,21 @@ const manipulateActiveAnchor = (anchorId) => {
     setActive(anchorId);
 }
 
-const addEvent = () => {
+const addAnchorsEvents = () => {
     const anchors = document.querySelectorAll('a');
     anchors.forEach(function (anchor) {
         anchor.addEventListener('click', function () {
             paginate(anchor.innerHTML)
             manipulateActiveAnchor(anchor.id)
+        });
+    })
+}
+
+const addOrderByEvents = () => {
+    const options = document.querySelectorAll('option');
+    options.forEach(function (option) {
+        option.addEventListener('click', function () {
+            orderProducts(option.value);
         });
     })
 }
@@ -72,7 +100,7 @@ const mapBarPaginationElements = () => {
     document.getElementById('paginationSection').insertAdjacentHTML('beforeend', template);
     document.getElementById('anchor1').classList.add('active');
 
-    addEvent();
+    addAnchorsEvents();
 }
 
 const clearProducts = () => {
@@ -107,4 +135,4 @@ const mapToHtml = (products) => {
     });
 }
 
-
+addOrderByEvents();
