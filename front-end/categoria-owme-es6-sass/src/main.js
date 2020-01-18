@@ -88,6 +88,19 @@ const addOrderByEvents = () => {
     })
 }
 
+const openMobileMenu = () => {
+    document.getElementById('sideNav').style.width = "350px";
+}
+
+const closeMobileMenu = () => {
+    document.getElementById("sideNav").style.width = "0";
+}
+
+const addMobileMenuEvent = () => {
+    document.getElementById('hamburguer').addEventListener('click', openMobileMenu);
+    document.getElementById('closeButton').addEventListener('click', closeMobileMenu);
+}
+
 const mapBarPaginationElements = () => {
     let template =
         `<a id="arrowLeft">❮</a>`;
@@ -136,3 +149,4 @@ const mapToHtml = (products) => {
 }
 
 addOrderByEvents();
+addMobileMenuEvent();
