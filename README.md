@@ -1,4 +1,4 @@
-# Para acessar o site
+# Para acessar o projeto
 
 [Prova Técnica](https://felipem920.github.io/ecommerce-prova-tecnica/)
 
