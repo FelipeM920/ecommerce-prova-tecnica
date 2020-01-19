@@ -5,7 +5,8 @@
   "scripts": {
     "scss": "node-sass src/assets/scss -o src/assets/styles",
     "compile": "babel src/components --out-dir src/lib",
-    "bundle": "browserify src/lib/enum.js src/lib/service.js src/lib/main.js -o src/bundle.js"
+    "bundle": "browserify src/lib/enum.js src/lib/service.js src/lib/main.js -o src/bundle.js",
+    "init": "yarn run scss & yarn run compile && yarn run bundle"
   },
   "author": "Felipe M.",
   "license": "MIT",
