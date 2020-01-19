@@ -1,5 +1,5 @@
-import { Service } from '../src/components/service.js';
-import { OptionBox } from '../src/components/enum.js';
+import { Service } from './service.js';
+import { OptionBox } from './enum.js';
 
 const service = new Service();
 const pageSize = 20;
