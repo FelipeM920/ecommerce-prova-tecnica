@@ -1,9 +1,7 @@
 # See http://help.github.com/ignore-files/ for more about ignoring files.
 
 #generated code
-/src/assets/styles
 /src/lib
-/src/bundle.js
 
 # compiled output
 /dist
