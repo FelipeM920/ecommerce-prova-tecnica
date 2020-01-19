@@ -73,6 +73,8 @@ const addAnchorsEvents = () => {
     const anchors = document.querySelectorAll('a');
     anchors.forEach(function (anchor) {
         anchor.addEventListener('click', function () {
+            if ((anchor.innerHTML == '❮' && actualAnchor == 1) || (anchor.innerHTML == '❯' && actualAnchor == totalPages))
+                return;
             paginate(anchor.innerHTML)
             manipulateActiveAnchor(anchor.id)
         });
